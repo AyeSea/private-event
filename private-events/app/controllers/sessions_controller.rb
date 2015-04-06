@@ -12,4 +12,11 @@ class SessionsController < ApplicationController
   		render 'new'
   	end
   end
+
+  def destroy
+  	sign_out if signed_in?
+  	#update below to route to events#index later on
+  	redirect_to signin_path
+  end
 end
+	
