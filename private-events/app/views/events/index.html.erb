@@ -1,0 +1,13 @@
+<h1>All Events</h1>
+
+<% Event.all.each_with_index do |event, i| %>
+	<ul>
+	<strong>Event#<%= i %></strong>
+		<li>Name: 		 	 <%= event.name %></li>
+		<li>Date: 			 <%= event.date %></li>
+		<li>Location:		 <%= event.location %></li>
+		<li>Description: <%= event.description %></li>
+		<li>Created By:	 <%= event.creator.name %></li>
+	</ul>
+	<%= link_to "Details", event %>
+<% end %>

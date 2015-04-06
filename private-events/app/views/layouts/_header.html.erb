@@ -1,6 +1,9 @@
 <% if signed_in? %>
 	<p>Signed in as <strong><%= current_user.name %></strong></p>
 	<%= link_to "Sign Out", signout_path, method: :delete %>
+	<%= link_to "Profile", current_user %>
 <% else %>
 	<%= link_to "Sign In", signin_path %>
 <% end %>
+
+<%= link_to "Events", events_path %>

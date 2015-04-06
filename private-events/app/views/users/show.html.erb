@@ -1,4 +1,14 @@
-<h1>Profile Page for <%= User.find(params[:id]).name %></h1>
+<h1>Profile Page for <%= current_user.name %></h1>
 
 <h2>My Events:</h2>
-<p>You do not have any events.</p>
+
+<% unless current_user.events.empty? %>
+	<ul>
+	<% current_user.events.each do |event| %>
+		<li><%= event.date.to_formatted_s(:long_ordinal) %>	|	<%= event.name %></li>
+		<%= link_to "Details", event %>
+	<% end %>
+	</ul>
+<% end %>
+
+<%= link_to "Make a New Event", new_event_path %>

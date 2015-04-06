@@ -1,0 +1,19 @@
+<h1>Create a New Event:</h1>
+
+<%= form_for @event do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name, placeholder: "Ex. Punish Bart" %>
+
+	<%= f.label :date %>
+	<%= f.date_field :date %>
+
+	<%= f.label :location %>
+	<%= f.text_field :location, placeholder: "Ex. Springfield" %>
+
+	<%= f.label :description %>
+	<%= f.text_area :description, placeholder: "Bart is up to no good and Marge wants me to punish him. 
+																							Come watch as I show you what good parenting is!", 
+																							rows: 7, cols: 25 %>
+
+	<%= f.submit "Create Event" %>
+<% end %>

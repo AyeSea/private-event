@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  resources :users,  only: [:new, :create, :show]
+  resources :events, only: [:new, :create, :show, :index]
 
-  resources :users, only: [:new, :create, :show]
   get     'signin'  => 'sessions#new'
   post    'signin'  => 'sessions#create'
   delete  'signout' => 'sessions#destroy'

@@ -1,0 +1,9 @@
+<% event = Event.find_by(id: params[:id]) %>
+<h1><%= event.name %></h1>
+<ul>
+	<li><%= event.date %></li>
+	<li><%= event.location %></li>
+</ul>
+
+<p><%= event.description %></p>
+<p><strong>Created By <%= event.creator.name %></strong></p>
