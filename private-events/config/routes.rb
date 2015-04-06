@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :users, only: [:new, :create, :show]
+  get   'signin' => 'sessions#new'
+  post  'signin' => 'sessions#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
