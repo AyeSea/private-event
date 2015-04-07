@@ -7,3 +7,14 @@
 
 <p><%= event.description %></p>
 <p><strong>Created By <%= event.creator.name %></strong></p>
+
+<h3>List of Attendees</h3>
+<% if event.attendees.empty? %>
+	<p><strong>No attendees yet.</strong></p>
+<% end %>
+
+<ul>
+<% event.attendees.each do |attendee| %>
+	<li><%= attendee.name %></li>
+<% end %>
+</ul>

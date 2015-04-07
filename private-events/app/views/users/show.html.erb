@@ -1,6 +1,6 @@
 <h1>Profile Page for <%= current_user.name %></h1>
 
-<h2>My Events:</h2>
+<h2>My Created Events:</h2>
 
 <% unless current_user.events.empty? %>
 	<ul>
@@ -12,3 +12,15 @@
 <% end %>
 
 <%= link_to "Make a New Event", new_event_path %>
+
+<h2>Events to Attend:</h2>
+
+<% if current_user.attended_events.empty? %>
+	<p><strong>No events to attend.</strong></p>
+<% end %>
+
+<ul>
+<% current_user.attended_events.each do |attended_event| %>
+	<li><%= attended_event.name %></li>
+<% end %>
+</ul>
