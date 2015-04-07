@@ -13,14 +13,22 @@
 
 <%= link_to "Make a New Event", new_event_path %>
 
-<h2>Events to Attend:</h2>
+<h2>Upcoming Events:</h2>
+<% if upcoming_events.empty? %>
+	<p><strong>No upcoming events.</strong></p>
 
-<% if current_user.attended_events.empty? %>
-	<p><strong>No events to attend.</strong></p>
+<% else %>
+	<% upcoming_events.each do |event| %>
+		<li><%= event.date.to_formatted_s(:long_ordinal) %> | <%= event.name %></li>
+	<% end %>
 <% end %>
 
-<ul>
-<% current_user.attended_events.each do |attended_event| %>
-	<li><%= attended_event.name %></li>
+<h2>Previously Attended Events:</h2>
+<% if prev_events.empty? %>
+	<p><strong>No previously attended events.</strong></p>
+
+<% else %>
+	<% prev_events.each do |event| %>
+		<li><%= event.date.to_formatted_s(:long_ordinal) %> | <%= event.name %></li>
+	<% end %>
 <% end %>
-</ul>
